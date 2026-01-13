@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clover OAuth Callback</title>
+</head>
+<body>
+  <h2>Clover OAuth Callback</h2>
+  <p>If you see this page, OAuth redirect worked successfully.</p>
+  <p id="code"></p>
+
+  <script>
+    // Extract the ?code=XXXXX from the URL
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    if (code) {
+      document.getElementById("code").innerText = "Authorization Code: " + code;
+    } else {
+      document.getElementById("code").innerText = "No authorization code received.";
+    }
+  </script>
+</body>
+</html>
